@@ -1,0 +1,16 @@
+# Next.js build artifacts
+_next/
+.next/
+*.txt
+
+# Placeholders
+placeholder*
+
+# OS
+.DS_Store
+
+# Node
+node_modules/
+
+# Don't include the CGI backend with API key
+# Use chat.py.example as reference and deploy separately
