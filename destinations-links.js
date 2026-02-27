@@ -232,3 +232,38 @@ Réponds de manière concise (max 3 phrases), chaleureuse et immersive. Ne rév�
     setTimeout(patchChatbot, 3000);
     new MutationObserver(patchChatbot).observe(document.body, { childList: true, subtree: true });
 })();
+
+// ===== 3. Replace inline SVG logo with new custom logo =====
+(function () {
+  function replaceLogo() {
+    // Find navbar logo (the one next to "TimeTravel Agency")
+    const navLink = document.querySelector('nav a[href="#"]');
+    if (navLink) {
+      const iconContainer = navLink.querySelector('div');
+      if (iconContainer && !iconContainer.dataset.logoReplaced) {
+        iconContainer.innerHTML = '<img src="/icon.png" alt="TimeTravel Agency Logo" style="width:20px;height:20px;object-fit:contain;" />';
+        iconContainer.style.border = 'none';
+        iconContainer.dataset.logoReplaced = '1';
+      }
+    }
+    
+    // Find footer logo
+    const footerTitles = document.querySelectorAll('footer span, footer h4');
+    footerTitles.forEach(span => {
+      if (span.textContent.includes('TimeTravel Agency') && span.parentElement.tagName === 'DIV') {
+        const iconContainer = span.parentElement.querySelector('div');
+        if (iconContainer && !iconContainer.dataset.logoReplaced) {
+          iconContainer.innerHTML = '<img src="/icon.png" alt="TimeTravel Agency Logo" style="width:20px;height:20px;object-fit:contain;" />';
+          iconContainer.style.border = 'none';
+          iconContainer.dataset.logoReplaced = '1';
+        }
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', replaceLogo);
+  } else { replaceLogo(); }
+  setTimeout(replaceLogo, 500);
+  setTimeout(replaceLogo, 1500);
+})();
