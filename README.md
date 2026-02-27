@@ -2,6 +2,12 @@
 
 Webapp immersive pour une agence de voyage temporel fictive de luxe.
 
+**Équipe Projet :**
+- CHENEVAS-PAULE Alexis
+- LABATE Julien
+- RANDO Damien
+- RANDO Lucas
+
 ## 🌐 URL de déploiement
 
 **https://dal.symoni.fr**
